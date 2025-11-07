@@ -25,20 +25,20 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-md"
-          : "bg-transparent"
+          : "bg-gradient-to-b from-background/80 via-background/40 to-transparent backdrop-blur-sm"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
+            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 shadow-lg">
               <GraduationCap className="w-6 h-6 text-primary-foreground" />
             </div>
-            <span className="text-xl md:text-2xl font-bold text-foreground">
+            <span className="text-xl md:text-2xl font-bold text-foreground drop-shadow-md">
               EduGlobal
             </span>
           </a>
@@ -49,7 +49,7 @@ const Header = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                className="text-xs font-semibold text-foreground hover:text-primary transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:scale-105 drop-shadow-md"
               >
                 {link.name}
               </a>
@@ -58,10 +58,7 @@ const Header = () => {
 
           {/* CTA Buttons - Desktop */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="ghost" className="text-foreground">
-              Login
-            </Button>
-            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
               Get Started
             </Button>
           </div>
@@ -109,7 +106,7 @@ const Header = () => {
               key={link.name}
               href={link.href}
               onClick={() => setIsMenuOpen(false)}
-              className="block text-base font-medium text-foreground/80 hover:text-primary transition-colors py-2"
+              className="block text-sm font-semibold text-foreground hover:text-primary transition-colors py-2 hover:pl-2"
               style={{
                 animationDelay: `${index * 50}ms`,
                 opacity: 0,
@@ -122,10 +119,7 @@ const Header = () => {
             </a>
           ))}
           <div className="flex flex-col gap-3 pt-4 border-t border-border">
-            <Button variant="outline" className="w-full">
-              Login
-            </Button>
-            <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg">
               Get Started
             </Button>
           </div>
