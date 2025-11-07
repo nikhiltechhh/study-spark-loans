@@ -1,0 +1,166 @@
+import { Link } from "react-router-dom";
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Youtube, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const quickLinks = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "#about" },
+    { name: "Services", path: "#services" },
+    { name: "Contact", path: "#contact" },
+  ];
+
+  const services = [
+    "University Selection",
+    "Visa Assistance",
+    "Education Loans",
+    "Scholarship Guidance",
+    "Pre-Departure Support",
+    "Career Counseling",
+  ];
+
+  const socialLinks = [
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Youtube, href: "#", label: "YouTube" },
+  ];
+
+  return (
+    <footer className="bg-gradient-to-b from-secondary/30 to-secondary/10 border-t border-border">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Company Info */}
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-2xl font-display font-bold text-foreground mb-3">
+                Astro Overseas
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Your trusted partner in achieving global education dreams. Empowering students for over a decade.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3 group">
+                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                <p className="text-sm text-muted-foreground">
+                  123 Education Street, Learning District, City 12345
+                </p>
+              </div>
+              <div className="flex items-center gap-3 group cursor-pointer">
+                <Phone className="w-5 h-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
+                <a href="tel:+1234567890" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  +1 (234) 567-890
+                </a>
+              </div>
+              <div className="flex items-center gap-3 group cursor-pointer">
+                <Mail className="w-5 h-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
+                <a href="mailto:info@astrooverseas.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  info@astrooverseas.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-display font-semibold text-foreground mb-6">
+              Quick Links
+            </h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.path}
+                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center group"
+                  >
+                    <ArrowRight className="w-4 h-4 mr-2 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-lg font-display font-semibold text-foreground mb-6">
+              Our Services
+            </h4>
+            <ul className="space-y-3">
+              {services.map((service, index) => (
+                <li key={index}>
+                  <a
+                    href="#"
+                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center group text-sm"
+                  >
+                    <ArrowRight className="w-4 h-4 mr-2 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                    {service}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div>
+            <h4 className="text-lg font-display font-semibold text-foreground mb-6">
+              Stay Updated
+            </h4>
+            {/* <p className="text-sm text-muted-foreground mb-4">
+              Subscribe to our newsletter for the latest updates on study abroad opportunities.
+            </p>
+            <div className="flex gap-2 mb-6">
+              <Input
+                type="email"
+                placeholder="Your email"
+                className="flex-1 bg-background border-border focus:border-primary"
+              />
+              <Button size="icon" className="bg-primary hover:bg-primary/90 flex-shrink-0">
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div> */}
+            <div className="flex gap-3">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  aria-label={social.label}
+                  className="w-10 h-10 rounded-full bg-secondary hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                >
+                  <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary-foreground transition-colors" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-border">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-muted-foreground text-center md:text-left">
+              © {currentYear} Astro Overseas. All rights reserved.
+            </p>
+            <div className="flex flex-wrap gap-6 justify-center">
+              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Cookie Policy
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

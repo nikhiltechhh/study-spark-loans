@@ -69,7 +69,7 @@ const Hero = () => {
                 variant="outline"
                 className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 text-lg px-8 py-6"
               >
-                Explore Loan Options
+                Explore Services
               </Button>
             </div>
 
@@ -77,7 +77,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-8 pt-4">
               <div className="flex flex-col">
                 <span className="text-3xl sm:text-4xl font-bold text-white">
-                  15K+
+                  5K+
                 </span>
                 <span className="text-white/80 text-sm">
                   Students Placed
@@ -131,7 +131,7 @@ const Hero = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-24  z-10" />
     </section>
   );
 };
