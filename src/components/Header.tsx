@@ -62,9 +62,13 @@ const Header = () => {
 
   {/* CTA Buttons - Desktop */}
   <div className="hidden lg:flex items-center gap-4">
-    <Button className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-      Get Started
-    </Button>
+    <Button
+  onClick={() => window.open("https://wa.me/447377778725", "_blank")}
+  className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+>
+  Get Started
+</Button>
+
   </div>
 
   {/* Mobile Menu Button */}
@@ -127,9 +131,13 @@ const Header = () => {
           ))}
 
           <div className="flex flex-col gap-3 pt-4 border-t border-border">
-            <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg">
-              Get Started
-            </Button>
+            <Button
+  onClick={() => window.open("https://wa.me/447377778725", "_blank")}
+  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg"
+>
+  Get Started
+</Button>
+
           </div>
         </nav>
       </div>

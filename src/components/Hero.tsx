@@ -58,19 +58,26 @@ const Hero = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
-                size="lg"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 group"
-              >
-                Start Your Journey
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+  onClick={() => window.open("https://wa.me/447377778725", "_blank")}
+  size="lg"
+  className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 group"
+>
+  Start Your Journey
+  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+</Button>
+
               <Button
-                size="lg"
-                variant="outline"
-                className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 text-lg px-8 py-6"
-              >
-                Explore Services
-              </Button>
+  onClick={() => {
+    const section = document.getElementById("services");
+    section?.scrollIntoView({ behavior: "smooth" });
+  }}
+  size="lg"
+  variant="outline"
+  className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 text-lg px-8 py-6"
+>
+  Explore Services
+</Button>
+
             </div>
 
             {/* Stats */}

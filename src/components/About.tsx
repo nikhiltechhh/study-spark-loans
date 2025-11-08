@@ -310,19 +310,23 @@ const About = () => {
               Let's make your global education aspirations a reality today.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                onClick={() => window.open("https://wa.me/447377778725", "_blank")}
+                size="lg"
                 className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 shadow-2xl hover:shadow-accent/50 transition-all duration-300 hover:scale-110 group font-semibold"
               >
                 Get Started Today
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </Button>
-              <Button 
-                size="lg" 
+
+              <Button
+                onClick={() => (window.location.href = "tel:+447377778725")}
+                size="lg"
                 className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 shadow-2xl transition-all duration-300 hover:scale-110 font-semibold"
               >
                 Schedule Free Call
               </Button>
+
             </div>
             <p className="mt-6 text-primary-foreground/80 text-base">
               No obligations. Free consultation. Expert advice.

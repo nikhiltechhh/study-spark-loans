@@ -1,5 +1,14 @@
-import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Youtube, ArrowRight } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+  Youtube,
+  ArrowRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -7,10 +16,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: "Home", path: "/" },
-    { name: "About Us", path: "#about" },
-    { name: "Services", path: "#services" },
-    { name: "Contact", path: "#contact" },
+    { name: "Home", id: "home" },
+    { name: "About Us", id: "about" },
+    { name: "Services", id: "services" },
+    { name: "Contact", id: "contact" },
   ];
 
   const services = [
@@ -30,6 +39,13 @@ const Footer = () => {
     { icon: Youtube, href: "#", label: "YouTube" },
   ];
 
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="bg-gradient-to-b from-secondary/30 to-secondary/10 border-t border-border">
       <div className="container mx-auto px-4 py-16">
@@ -41,26 +57,33 @@ const Footer = () => {
                 Astro Overseas
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Your trusted partner in achieving global education dreams. Empowering students for over a decade.
+                Your trusted partner in achieving global education dreams.
+                Empowering students for over a decade.
               </p>
             </div>
             <div className="space-y-3">
               <div className="flex items-start gap-3 group">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
                 <p className="text-sm text-muted-foreground">
-                  123 Education Street, Learning District, City 12345
+                  London, Vijayawada, Hyderabad, Khammam.
                 </p>
               </div>
               <div className="flex items-center gap-3 group cursor-pointer">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
-                <a href="tel:+1234567890" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  +1 (234) 567-890
+                <a
+                  href="tel:+447377778725"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  +44 7377 778 725
                 </a>
               </div>
               <div className="flex items-center gap-3 group cursor-pointer">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
-                <a href="mailto:info@astrooverseas.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  info@astrooverseas.com
+                <a
+                  href="mailto:astrooverseas07@gmail.com"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  astrooverseas07@gmail.com
                 </a>
               </div>
             </div>
@@ -74,13 +97,13 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <Link
-                    to={link.path}
-                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center group"
+                  <button
+                    onClick={() => handleScroll(link.id)}
+                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center group text-left"
                   >
                     <ArrowRight className="w-4 h-4 mr-2 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                     {link.name}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -94,13 +117,10 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <a
-                    href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center group text-sm"
-                  >
+                  <span className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center group text-sm cursor-pointer">
                     <ArrowRight className="w-4 h-4 mr-2 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                     {service}
-                  </a>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -111,8 +131,9 @@ const Footer = () => {
             <h4 className="text-lg font-display font-semibold text-foreground mb-6">
               Stay Updated
             </h4>
-            {/* <p className="text-sm text-muted-foreground mb-4">
-              Subscribe to our newsletter for the latest updates on study abroad opportunities.
+            <p className="text-sm text-muted-foreground mb-4">
+              Subscribe to our newsletter for the latest updates on study abroad
+              opportunities.
             </p>
             <div className="flex gap-2 mb-6">
               <Input
@@ -120,21 +141,12 @@ const Footer = () => {
                 placeholder="Your email"
                 className="flex-1 bg-background border-border focus:border-primary"
               />
-              <Button size="icon" className="bg-primary hover:bg-primary/90 flex-shrink-0">
+              <Button
+                size="icon"
+                className="bg-primary hover:bg-primary/90 flex-shrink-0"
+              >
                 <ArrowRight className="w-4 h-4" />
               </Button>
-            </div> */}
-            <div className="flex gap-3">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-secondary hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-                >
-                  <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary-foreground transition-colors" />
-                </a>
-              ))}
             </div>
           </div>
         </div>
@@ -146,13 +158,22 @@ const Footer = () => {
               © {currentYear} Astro Overseas. All rights reserved.
             </p>
             <div className="flex flex-wrap gap-6 justify-center">
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
                 Privacy Policy
               </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
                 Terms of Service
               </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="#"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
                 Cookie Policy
               </a>
             </div>
