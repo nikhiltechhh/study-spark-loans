@@ -320,7 +320,7 @@ const About = () => {
               </Button>
 
               <Button
-                onClick={() => (window.location.href = "tel:+447377778725")}
+                onClick={() => (window.location.href = "tel:+917075497495")}
                 size="lg"
                 className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 shadow-2xl transition-all duration-300 hover:scale-110 font-semibold"
               >
