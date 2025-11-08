@@ -21,82 +21,80 @@ const Header = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const googleFormLink = "https://forms.gle/rjNQDnGqQPEA4RY97"; // <-- Your Google Form
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-white shadow-md" // solid white, no blur
+          ? "bg-white shadow-md"
           : "bg-gradient-to-b from-background/10 via-background/10 to-transparent backdrop-blur-sm"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-  {/* Logo */}
-  <a href="#home" className="flex items-center gap-1 group">
-    <img
-      src="https://i.ibb.co/BKQfb7MF/astrologo.png"
-      alt="EduGlobal Logo"
-      className="w-20 h-18 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
-    />
-   <span className="text-2xl md:text-3xl font-semibold text-zinc-800 dark:text-zinc-200 tracking-tight font-serif">
-  Astro Overseas
-</span>
+          {/* Logo */}
+          <a href="#home" className="flex items-center gap-1 group">
+            <img
+              src="https://i.ibb.co/BKQfb7MF/astrologo.png"
+              alt="Astro Overseas Logo"
+              className="w-20 h-18 object-contain transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+            />
+            <span className="text-2xl md:text-3xl font-semibold text-zinc-800 dark:text-zinc-200 tracking-tight font-serif">
+              Astro Overseas
+            </span>
+          </a>
 
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`text-l font-semibold ${
+                  isScrolled ? "text-foreground" : "text-white"
+                } hover:text-primary transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:scale-105`}
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
 
-  </a>
+          {/* CTA Buttons - Desktop */}
+          <div className="hidden lg:flex items-center gap-4">
+            <Button
+              onClick={() => window.open(googleFormLink, "_blank")}
+              className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              Get Started
+            </Button>
+          </div>
 
-  {/* Desktop Navigation */}
-  <nav className="hidden lg:flex items-center gap-8">
-    {navLinks.map((link) => (
-      <a
-        key={link.name}
-        href={link.href}
-        className={`text-l font-semibold ${
-          isScrolled ? "text-foreground" : "text-white"
-        } hover:text-primary transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:scale-105`}
-      >
-        {link.name}
-      </a>
-    ))}
-  </nav>
-
-  {/* CTA Buttons - Desktop */}
-  <div className="hidden lg:flex items-center gap-4">
-    <Button
-  onClick={() => window.open("https://wa.me/447377778725", "_blank")}
-  className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
->
-  Get Started
-</Button>
-
-  </div>
-
-  {/* Mobile Menu Button */}
-  <button
-    onClick={() => setIsMenuOpen(!isMenuOpen)}
-    className="lg:hidden relative w-10 h-10 flex items-center justify-center focus:outline-none"
-    aria-label="Toggle menu"
-  >
-    <div className="flex flex-col gap-1.5 w-6">
-      <span
-        className={`h-0.5 bg-foreground transition-all duration-300 ${
-          isMenuOpen ? "rotate-45 translate-y-2 w-6" : "rotate-0 translate-y-0 w-4"
-        }`}
-      />
-      <span
-        className={`h-0.5 w-6 bg-foreground transition-all duration-300 ${
-          isMenuOpen ? "opacity-0" : "opacity-100"
-        }`}
-      />
-      <span
-        className={`h-0.5 bg-foreground transition-all duration-300 ${
-          isMenuOpen ? "-rotate-45 -translate-y-2 w-6" : "rotate-0 translate-y-0 w-6"
-        }`}
-      />
-    </div>
-  </button>
-</div>
-
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden relative w-10 h-10 flex items-center justify-center focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <div className="flex flex-col gap-1.5 w-6">
+              <span
+                className={`h-0.5 bg-foreground transition-all duration-300 ${
+                  isMenuOpen ? "rotate-45 translate-y-2 w-6" : "rotate-0 translate-y-0 w-4"
+                }`}
+              />
+              <span
+                className={`h-0.5 w-6 bg-foreground transition-all duration-300 ${
+                  isMenuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`h-0.5 bg-foreground transition-all duration-300 ${
+                  isMenuOpen ? "-rotate-45 -translate-y-2 w-6" : "rotate-0 translate-y-0 w-6"
+                }`}
+              />
+            </div>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -108,7 +106,7 @@ const Header = () => {
         <nav
           className={`border-t border-border px-4 py-6 space-y-4 animate-slide-down ${
             isScrolled
-              ? "bg-white" // solid white, no blur
+              ? "bg-white"
               : "bg-background/90 backdrop-blur-md"
           }`}
         >
@@ -132,13 +130,11 @@ const Header = () => {
 
           <div className="flex flex-col gap-3 pt-4 border-t border-border">
             <Button
-              onClick={() => window.open("YOUR_GOOGLE_FORM_LINK_HERE", "_blank")}
+              onClick={() => window.open(googleFormLink, "_blank")}
               className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg"
             >
               Get Started
             </Button>
-
-
           </div>
         </nav>
       </div>
