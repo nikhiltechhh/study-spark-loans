@@ -21,7 +21,7 @@ const Header = () => {
     { name: "Contact", href: "#contact" },
   ];
 
-  const googleFormLink = "https://forms.gle/8whZTHhyu38sBEsF7"; // <-- Your Google Form
+  const googleFormLink = "https://forms.gle/8whZTHhyu38sBEsF7"; 
 
   return (
     <header
